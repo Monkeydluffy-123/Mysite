@@ -1,0 +1,60 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f7f8fa;
+  color: #111;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+header h1 {
+  margin: 0;
+  flex: 1;
+}
+
+.pfp {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #4caf50; /* Verified color */
+}
+
+.blog-post {
+  background: #fff;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 700px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.blog-post h2 {
+  margin-top: 0;
+}
+
+.blog-post .meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.comment {
+  background: #f1f3f5;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.comment .reply-btn,
+.comment .like-btn {
+  cursor: pointer;
+  color: #4caf50;
+  margin-right: 10px;
+}

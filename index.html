@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Website</title>
+    <style>
+    /* CUSTOM AUDIO BUTTON */
+.audio-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.audio-player img {
+    width: 50px;        /* small button */
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.audio-player img:hover {
+    transform: scale(1.1);
+}
+    /* MINI VIDEO */
+    section {
+    margin-bottom: 40px;
+}
+    
+video {
+    display: block;
+    margin: 15px auto;
+}
+        
+     body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+}
+
+        /* BANNER SECTION */
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+        }
+        .banner img.bg-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.5;
+        }
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(8px);
+            min-width: 250px;
+        }
+
+        /* PROFILE IMAGE STYLING */
+        .profile-img {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures image isn't stretched */
+            margin: 0 auto 10px;
+            display: block;
+            border: 2px solid white;
+        }
+
+        .container {
+    max-width: 1100px;
+    margin: 40px auto;      /* THIS centers the site */
+    padding: 20px;
+    text-align: center;     /* THIS centers text */
+}
+
+        .btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 16px;
+            background: #35424a;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .skills button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            border-radius: 20px;
+            background: #2f3e46;
+            color: white;
+        }
+
+        /* CONTACT FORM */
+        .contact form {
+    margin: auto;
+}
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact button {
+            background: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        /* TRANSPARENT BLUR FOOTER */
+        footer {
+            position: relative;
+            background: rgba(53, 66, 74, 0.7);
+            backdrop-filter: blur(10px);
+            color: #ffffff;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+        .footer-text-box {
+            border: 1px solid white;
+            display: inline-block;
+            padding: 5px 15px;
+        }
+
+        #datetime { text-align: center; margin: 10px 0; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <section class="banner">
+        <img src="Banner.jpg" alt="Banner Image" class="bg-img">
+        <div class="banner-text">
+            <img src="1img.jpg" alt="PFP" class="profile-img">
+            <h1>Siddhant Mujalgekar</h1>
+            <p>Web Developer • Designer • Creator</p>
+        </div>
+    </section>
+
+    <div id="datetime"></div>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I am a passionate web developer with experience in creating responsive websites.</p>
+        </section>
+        <section id="admin-login">
+  <input id="email" type="email" placeholder="Admin Email">
+  <input id="password" type="password" placeholder="Password">
+  <button type="button" onclick="login()">Login</button>
+</section>
+        <section id="links">
+            <h2>Developer Links</h2>
+            <a href="#" class="btn">LinkedIn</a>
+            <a href="#" class="btn">GitHub</a>
+            <a href="#" class="btn">LeetCode</a>
+            <a href="https://codepen.io" target="_blank" class="btn">CodePen</a>
+    <a href="/tech-blog/blog.html" class="btn">My Blog</a>
+        </section>
+
+        <section id="videos">
+    <h2>My Videos</h2>
+
+    <video
+        class="mini-video"
+        controls
+        controlsList="nodownload noplaybackrate"
+        preload="metadata"
+        poster="videos/thumbnail.jpg"
+        playsinline
+    >
+        <source src="/TRULY SATISFYING.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+</section>
+    <section id="music">
+    <h2>My Music</h2>
+
+    <div class="audio-player">
+        <img src="music.png" id="playBtn" alt="Play Button">
+        <audio id="audio" loop preload="metadata">
+            <source src="/The Weeknd, Playboi Carti - Timeless.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</section>
+
+        <section class="skills">
+            <h2>Skills</h2>
+            <button>HTML5</button> <button>CSS3</button> <button>JavaScript</button>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <p><strong>Project 1:</strong> A personal portfolio website.</p>
+            <p><strong>Project 2:</strong> E-commerce application.</p>
+        </section>
+
+        <section class="contact">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-text-box">
+            <p>&copy; 2026 John Doe. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("datetime").innerText =
+                now.toDateString() + " | " + now.toLocaleTimeString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <script>
+    const audio = document.getElementById("audio");
+    const playBtn = document.getElementById("playBtn");
+
+    playBtn.onclick = () => {
+        if (audio.paused) {
+            audio.play();
+            playBtn.src = "music.png";  // change image when playing
+        } else {
+            audio.pause();
+            playBtn.src = "music.png";
+        }
+    };
+</script>
+<!-- FIREBASE SDK -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC6mbuxelKBox9H0JyKbnFMZ4opGVyCJBY",
+    authDomain: "mysite-blog.firebaseapp.com",
+    projectId: "mysite-blog",
+    storageBucket: "mysite-blog.appspot.com",
+    messagingSenderId: "154618049588",
+    appId: "1:154618049588:web:8f68280ca4bca507a2c661",
+    measurementId: "G-T4T2BDVK08"
+  };
+
+  const app = initializeApp(firebaseConfig);
+
+  // expose globally
+  window.auth = getAuth(app);
+  window.db = getFirestore(app);
+</script>
+
+<!-- YOUR BLOG LOGIC -->
+<script type="module" src="blog.js"></script>
+</body>
+</html>
