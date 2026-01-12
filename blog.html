@@ -9,5 +9,10 @@
     <textarea id="new-content" placeholder="Write here..."></textarea><br>
     <button onclick="saveBlog()">Post Blog</button>
 </section>
-
+<section id="create-blog" style="display:none; padding: 20px; background: #f0f0f0; margin: 20px auto; max-width: 700px; border-radius: 10px;">
+    <h2>Admin: Create Post</h2>
+    <input type="text" id="post-title" placeholder="Title" style="width:100%; margin-bottom:10px;"><br>
+    <textarea id="post-content" placeholder="Content (HTML allowed)" style="width:100%; height:100px;"></textarea><br>
+    <button onclick="savePost()" style="background: #35424a; color: white; padding: 10px; border: none; cursor: pointer;">Publish Post</button>
+</section>
 <main id="blog-container"></main>
