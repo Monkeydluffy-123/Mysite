@@ -1,52 +1,44 @@
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
 
 const auth = getAuth();
+const db = getFirestore();
 
-// Show editor only for the Admin
+// 1. Monitor Login State
 onAuthStateChanged(auth, user => {
-  const adminEmail = "siddhantmujalgekar601@gmail.com"; // Change to your actual admin email
-  const editor = document.getElementById("create-blog");
-  
-  if (user && user.email === adminEmail) {
-    if (editor) editor.style.display = "block";
+  const adminPanel = document.getElementById("create-blog");
+  // Replace with your actual admin email
+  if (user && user.email === "siddhantmujalgekar601@gmail.com") {
+    if(adminPanel) adminPanel.style.display = "block";
   } else {
-    if (editor) editor.style.display = "none";
+    if(adminPanel) adminPanel.style.display = "none";
   }
 });
 
-// Admin Login Function
-window.login = function() {
+// 2. Login Function
+window.login = () => {
   const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
-  signInWithEmailAndPassword(auth, email, password)
-    .then(() => alert("Logged in successfully!"))
-    .catch(err => alert("Error: " + err.message));
+  const pass = document.getElementById("password").value;
+  signInWithEmailAndPassword(auth, email, pass)
+    .then(() => alert("Login Successful!"))
+    .catch(err => alert("Login Failed: " + err.message));
 };
 
-// Simplified Blog Data for rendering
-let blogs = [
-  {
-    id: 1,
-    author: "Siddhant",
-    verified: true,
-    title: "My First Tech Blog",
-    content: "<p>This is a minimal tech blog example.</p>",
-    date: new Date().toLocaleString()
+// 3. Save Post to Firebase
+window.savePost = async () => {
+  const title = document.getElementById("new-title").value;
+  const content = document.getElementById("new-content").value;
+
+  try {
+    await addDoc(collection(db, "posts"), {
+      title: title,
+      content: content,
+      date: new Date().toLocaleString(),
+      author: "Siddhant"
+    });
+    alert("Post Published!");
+    location.reload(); // Refresh to see the new post
+  } catch (e) {
+    alert("Error adding document: " + e.message);
   }
-];
-
-function renderBlogs() {
-  const container = document.getElementById('blog-container');
-  if (!container) return;
-  
-  container.innerHTML = blogs.map(blog => `
-    <div class="blog-post">
-      <h2>${blog.title}</h2>
-      <div class="meta">${blog.author} ${blog.verified ? '✅' : ''} | ${blog.date}</div>
-      <div class="content">${blog.content}</div>
-    </div>
-  `).join('');
-}
-
-renderBlogs();
+};
